@@ -1,11 +1,13 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const port = 3001;
-const apiPrefix = process.env.API_PREFIX;
+'use strict';
 
-app.get(apiPrefix, (req, res) => {
-  return res.send("Hello World!");
-});
+require('dotenv').config();
+const express = require('express');
+const app = express();
+const router = require('./routes');
+
+const apiPrefix = process.env.API_PREFIX;
+const port = 3001;
+
+app.use(apiPrefix, router);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
