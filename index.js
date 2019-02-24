@@ -1,13 +1,11 @@
 'use strict';
 
 require('dotenv').config();
+const config = require('./config');
 const express = require('express');
 const app = express();
 const router = require('./routes');
 
-const apiPrefix = process.env.API_PREFIX;
-const port = 3001;
+app.use(config.apiPrefix, router);
 
-app.use(apiPrefix, router);
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(config.port, () => console.log(`Example app listening on port ${config.port}!`));
