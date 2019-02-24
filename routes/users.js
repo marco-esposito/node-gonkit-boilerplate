@@ -1,11 +1,13 @@
 'user strict';
 
 const router = require('express').Router();
+const users = require('../controllers/users');
+
 
 /**
  * Users Routes
  */
 router
-  .get('/', (req, res) => res.send('users'));
+  .get('/', users.getUsers);
 
 module.exports = router;
