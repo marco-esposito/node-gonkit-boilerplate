@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 const router = require('express').Router();
 const users = require('../routes/users');
 
 const _404 = {
   errors: [
-    'API not found'
+    'API not found',
   ],
 }
 
