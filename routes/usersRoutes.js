@@ -2,7 +2,7 @@
 
 const router = require("express").Router();
 
-const users = require("../controllers/users");
+const users = require("../controllers/usersController");
 const wrapAsync = require("../utils/wrapAsync");
 
 /**
