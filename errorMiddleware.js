@@ -1,9 +1,10 @@
-'use strict'
+"use strict";
 
 module.exports = (err, req, res, next) => {
   let status = 500;
-  let message = err;
-  if (err.name === 'HTTPError') {
+  let message = err.message;
+
+  if (err.name === "HTTPError") {
     status = err.status;
     message = err.message;
   }

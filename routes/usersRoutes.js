@@ -10,7 +10,6 @@ const wrapAsync = require("../utils/wrapAsync");
  */
 router
   .get("/", wrapAsync(users.getUsers))
-  // .get('/', wrapAsync(users.getErrorHandlingTest)) //NOTE: enable to test error handling (and disable the getUsers)
   .post("/", wrapAsync(users.createUser));
 
 module.exports = router;
