@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   userid: String,
@@ -15,6 +15,6 @@ const userSchema = new mongoose.Schema({
   notes: String
 });
 
-const User = mongoose.model("User", userSchema, "users");
+const User = mongoose.model('User', userSchema, 'users');
 
 module.exports = User;

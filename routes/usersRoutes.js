@@ -1,15 +1,13 @@
-"user strict";
+'user strict';
 
-const router = require("express").Router();
+const router = require('express').Router();
 
-const users = require("../controllers/usersController");
-const wrapAsync = require("../utils/wrapAsync");
+const users = require('../controllers/usersController');
+const wrapAsync = require('../utils/wrapAsync');
 
 /**
  * Users Routes
  */
-router
-  .get("/", wrapAsync(users.getUsers))
-  .post("/", wrapAsync(users.createUser));
+router.get('/', wrapAsync(users.getUsers)).post('/', wrapAsync(users.signUp));
 
 module.exports = router;

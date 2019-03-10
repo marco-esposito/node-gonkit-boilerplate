@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
-require("dotenv").config();
-const express = require("express");
+require('dotenv').config();
+const express = require('express');
 const app = express();
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const helmet = require("helmet");
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const helmet = require('helmet');
 
-const config = require("./config");
-const errorHandler = require("./errorMiddleware");
-const router = require("./routes");
+const config = require('./config');
+const errorHandler = require('./errorMiddleware');
+const router = require('./routes');
 
-require("./db");
+require('./db');
 
-app.use(morgan("dev"));
+app.use(morgan('dev'));
 app.use(helmet());
 app.use(bodyParser.json());
 
