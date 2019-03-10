@@ -8,6 +8,9 @@ const wrapAsync = require('../utils/wrapAsync');
 /**
  * Users Routes
  */
-router.get('/', wrapAsync(users.getUsers)).post('/', wrapAsync(users.signUp));
+// prettier-ignore
+router
+.get('/', wrapAsync(users.getUsers)
+.post('/', wrapAsync(users.signUp)));
 
 module.exports = router;

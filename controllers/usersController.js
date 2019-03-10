@@ -32,7 +32,10 @@ const signUp = async (req, res) => {
   res.status(201).send(response);
 };
 
+const signIn = async (req, res) => {};
+
 module.exports = {
   getUsers,
-  signUp
+  signUp,
+  signIn
 };
