@@ -9,6 +9,7 @@ const helmet = require('helmet');
 
 const config = require('./config');
 const errorHandler = require('./errorMiddleware');
+const authHandler = require('./authMiddleware');
 const router = require('./routes');
 
 require('./db');
@@ -16,6 +17,8 @@ require('./db');
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(bodyParser.json());
+
+app.use(authHandler);
 
 app.use(config.apiPrefix, router);
 

@@ -3,15 +3,15 @@
 const router = require('express').Router();
 
 const users = require('../controllers/usersController');
-const wrapAsync = require('../utils/wrapAsync');
+const utils = require('./utils');
 
 /**
  * Users Routes
  */
 // prettier-ignore
 router
-  .get('/', wrapAsync(users.getUsers))
-  .post('/sign-up', wrapAsync(users.signUp))
-  .get('/sign-in', wrapAsync(users.signIn));
+  .get('/', utils.authorize, utils.wrapAsync(users.getUsers))
+  .post('/sign-up', utils.wrapAsync(users.signUp))
+  .get('/sign-in', utils.wrapAsync(users.signIn));
 
 module.exports = router;
