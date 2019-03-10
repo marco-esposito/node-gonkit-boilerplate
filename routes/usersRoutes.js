@@ -10,7 +10,8 @@ const wrapAsync = require('../utils/wrapAsync');
  */
 // prettier-ignore
 router
-.get('/', wrapAsync(users.getUsers)
-.post('/', wrapAsync(users.signUp)));
+  .get('/', wrapAsync(users.getUsers))
+  .post('/sign-up', wrapAsync(users.signUp))
+  .get('/sign-in', wrapAsync(users.signIn));
 
 module.exports = router;

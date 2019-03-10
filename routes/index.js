@@ -7,11 +7,10 @@ const _404 = {
   errors: ['API not found']
 };
 
-router.get('/', (req, res) => res.send('AsdBooking API Status: available'));
+router.get('/', (req, res) => res.send('API Status: available'));
 
 router.use('/users', users);
 
-router.get('/*', (req, res) => res.status(404).send(_404));
-router.post('/*', (req, res) => res.status(404).send(_404));
+router.all('/*', (req, res) => res.status(404).send(_404));
 
 module.exports = router;

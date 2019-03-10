@@ -1,7 +1,10 @@
 'use strict';
 
-const HTTPError = require('../HTTPError');
+const atob = require('atob');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const HTTPError = require('../HTTPError');
 const User = require('../models/userModel');
 
 const getUsers = async (req, res) => {
@@ -32,7 +35,36 @@ const signUp = async (req, res) => {
   res.status(201).send(response);
 };
 
-const signIn = async (req, res) => {};
+const signIn = async (req, res) => {
+  if (!req.get('Authorization'))
+    throw new HTTPError(400, 'Basic authentication in header is missing');
+
+  const b64 = atob(
+    req
+      .get('Authorization')
+      .split(' ')
+      .pop()
+  );
+  const [userid, password] = b64.split(':');
+
+  const user = await User.findOne({ userid });
+  if (!user) throw new HTTPError(404, 'User not found');
+
+  const areCompatible = await bcrypt.compare(password, user.password);
+  if (!areCompatible) throw new HTTPError(401, 'Unauthorized');
+
+  const jwtPayload = {
+    userid: user.userid,
+    id: user._id
+  };
+  const payload = {
+    userid,
+    jwt: jwt.sign(jwtPayload, process.env.JWT_SECRET),
+    name: user.name,
+    email: user.email
+  };
+  res.status(200).send(payload);
+};
 
 module.exports = {
   getUsers,
