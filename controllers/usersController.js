@@ -55,7 +55,7 @@ const signIn = async (req, res) => {
 
   const jwtPayload = {
     userid: user.userid,
-    id: user._id
+    sub: user._id
   };
   const payload = {
     userid,
