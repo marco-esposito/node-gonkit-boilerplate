@@ -1,0 +1,116 @@
+{
+  "info": {
+    "_postman_id": "2cfe7faa-faaf-4d9b-9634-bf69e79249e2",
+    "name": "Node-Gonkit-Boilerplate",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "service status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{url}}/api/v1/users",
+          "host": ["{{url}}"],
+          "path": ["api", "v1", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sign Up",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"userid\": \"gonkit\",\n\t\"password\": \"123456\",\n\t\"name\": \"Marco\",\n\t\"surname\": \"Esposito\",\n\t\"birthdate\": \"26/01/2001\",\n\t\"roles\": [\n\t\t\"admin\"\n\t],\n\t\"status\": \"active\",\n\t\"email\": \"gonkit@tiscali.it\",\n\t\"phone\": \"3404003716\",\n\t\"notes\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{url}}/users",
+          "host": ["{{url}}"],
+          "path": ["users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sign In",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "123",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "gonkit",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{url}}/users/sign-in",
+          "host": ["{{url}}"],
+          "path": ["users", "sign-in"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "89a5317f-35aa-445b-aca8-2dcb8d94304f",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "a9a3eb1f-3dd9-4632-bbcf-297143455dbd",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

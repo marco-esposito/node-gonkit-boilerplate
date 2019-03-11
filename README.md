@@ -2,7 +2,7 @@
 
 ### Description
 
-This repo is a light boilerplate with user authentication through Passport and Error Handling Middleware.
+This repo is a light boilerplate with user authentication and Error Handling Middlewares.
 
 ## Usage
 
@@ -17,7 +17,7 @@ This repo is a light boilerplate with user authentication through Passport and E
 - [Node.js](https://nodejs.org/)
 - [Express](http://express.com/)
 - [MongoDB](https://www.mongodb.com/)/[Mongoose](http://mongoosejs.com/)
-- 
+-
 
 ## Contributors
 
