@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = requiore('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 
@@ -16,6 +17,7 @@ require('./db');
 
 app.use(morgan('dev'));
 app.use(helmet());
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use(authHandler);
